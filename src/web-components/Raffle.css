@@ -1,3 +1,14 @@
 @import "~blaze/dist/generics.global.min.css";
 @import "~blaze/dist/components.inputs.min.css";
 @import "~blaze/dist/components.buttons.min.css";
+@import "~blaze/dist/components.lists.min.css";
+@import "~blaze/dist/components.alerts.min.css";
+@import "~blaze/dist/objects.forms.min.css";
+@import "~blaze/dist/utilities.sizes.min.css";
+
+.text-center{
+  text-align: center;
+}
+[hidden]{
+  display: none;
+}
