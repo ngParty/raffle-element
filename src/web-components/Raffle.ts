@@ -28,10 +28,8 @@ export class Raffle extends HTMLElement {
         </div>
         <h2>Winners:</h2>
         <ul id="${Raffle.refIds.raffleWinners}" class="c-list c-list--unstyled u-super">
-          <li class="c-list__item">Lorem ipsum dolor sit amet</li>
-          <li class="c-list__item">Consectetur adipiscing elit</li>
-          <li class="c-list__item">Nulla volutpat aliquam velit</li>
-         </ul>  
+          <li class="c-list__item">Lorem ipsum dolor sit amet</li>         
+        </ul>  
       </div>
     `)
   }
@@ -57,6 +55,14 @@ export class Raffle extends HTMLElement {
     super();
     const shadowRoot = this.attachShadow( { mode: 'open' } );
     shadowRoot.innerHTML = Raffle.template;
+
+    this.refs = {
+      participantsForm: shadowRoot.querySelector(`#${Raffle.refIds.participantsForm}`) as HTMLFormElement,
+      participants: shadowRoot.querySelector(`#${Raffle.refIds.participants}`) as HTMLTextAreaElement,
+      participantsCount: shadowRoot.querySelector(`#${Raffle.refIds.participantsCount}`) as HTMLDivElement,
+      startRaffle: shadowRoot.querySelector(`#${Raffle.refIds.startRaffle}`) as HTMLButtonElement,
+      raffleWinners: shadowRoot.querySelector(`#${Raffle.refIds.raffleWinners}`) as HTMLUListElement,
+    };
   }
 }
 
