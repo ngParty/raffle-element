@@ -1,6 +1,8 @@
 import './polyfills';
 import './style.css'
 
+import './web-components/Raffle';
+
 const mountPoint = document.getElementById('app');
 
 const App = () => (
@@ -17,6 +19,7 @@ const App = () => (
     </header>
     <main class="o-container o-container--large u-pillar-box--small">
      <h1 class="u-centered">Raffle time!</h1>
+     <ng-party-raffle></ng-party-raffle>
     </main>
    </div>`
 );

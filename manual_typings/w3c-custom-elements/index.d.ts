@@ -23,6 +23,7 @@ export interface OnAttributeChangedCallback {
   attributeChangedCallback(name: string, oldValue: any, newValue: any): void;
 }
 
+export {}
 declare global {
   interface CustomElementRegistry {
     // tslint:disable-next-line:forbidden-types
@@ -48,5 +49,5 @@ declare global {
     createElement(name: string, options: ElementCreationOptions): HTMLElement;
   }
 
-  const customElements: CustomElementRegistry;
+  var customElements: CustomElementRegistry;
 }
