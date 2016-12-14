@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es5",
+    "sourceMap": true,
+    "jsx": "react",
+    "jsxFactory": "h",
+    "outDir": "ts-output",
+    "moduleResolution": "node",
+    "noEmitHelpers": true,
+    "importHelpers": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "lib":[
+      "dom",
+      "es5",
+      "es2015.core",
+      "es2015.promise"
+    ],
+    "typeRoots": [
+      "manual_typings"
+    ]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}

@@ -1,0 +1,8 @@
+@import "~blaze";
+@import "~blaze/dist/blaze.colors.min.css";
+
+
+.c-hero {
+    border-bottom: 1px solid #e7e7e7;
+    background-color: #f7f7f7;
+}
