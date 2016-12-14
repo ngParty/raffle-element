@@ -1,5 +1,10 @@
 import style from './Raffle.css';
 
+type State = {
+  participants?: string[],
+  winners?: string[],
+}
+
 export class Raffle extends HTMLElement {
   static get is() { return 'ng-party-raffle' }
 
@@ -51,6 +56,11 @@ export class Raffle extends HTMLElement {
     raffleWinners: HTMLUListElement,
   };
 
+  private state: {
+    participants: string[],
+    winners: string[],
+  };
+
   constructor(){
     super();
     const shadowRoot = this.attachShadow( { mode: 'open' } );
@@ -63,6 +73,25 @@ export class Raffle extends HTMLElement {
       startRaffle: shadowRoot.querySelector(`#${Raffle.refIds.startRaffle}`) as HTMLButtonElement,
       raffleWinners: shadowRoot.querySelector(`#${Raffle.refIds.raffleWinners}`) as HTMLUListElement,
     };
+
+    this.handleParticipantsAddition = this.handleParticipantsAddition.bind(this);
+
+    this.refs.participantsForm.addEventListener( 'submit', this.handleParticipantsAddition )
+  }
+
+  private handleParticipantsAddition( event: Event ) {
+    event.preventDefault();
+    const participants = processTextarea( this.refs.participants.value );
+    this.setState( { participants } );
+    this.refs.participants.value = '';
+
+    function processTextarea( value: string ): string[] {
+      return value.split( '\n' ).map( participant => participant.trim() ).filter(participant=>participant.length)
+    }
+  }
+
+  private setState( newState: State ) {
+    this.state = Object.assign( {}, newState, this.state )
   }
 }
 
